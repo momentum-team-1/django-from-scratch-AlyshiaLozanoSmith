@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 
     # Project-specific
     'users',
-    'habit_tracker',
+    'habits',
 ]
 
 MIDDLEWARE = [
