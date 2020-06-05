@@ -17,6 +17,9 @@ class DailyRecord(models.Model):
                               related_name='dailyrecord')
     quantity = models.PositiveIntegerField(null=True, blank=True)
     recorded_on = models.DateField(null=True, blank=True)
+    
+    class meta:
+        unique_together = [['habit','recorded_on']]
 
     def __str__(self):
         return f"you made progress towards your goal! {self.quantity}{self.recorded_on}"
