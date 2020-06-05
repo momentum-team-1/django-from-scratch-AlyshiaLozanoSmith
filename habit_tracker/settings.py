@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     # Third-party
     'debug_toolbar',
     'django_extensions',
+    
 
     # Project-specific
     'users',
@@ -139,3 +141,6 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
+
+#django-regisration-redux setttings
+ACCOUNT_ACTIVATION_DAYS = 7 
