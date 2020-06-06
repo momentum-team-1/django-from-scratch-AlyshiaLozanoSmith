@@ -1,6 +1,8 @@
+{% extends 'base.html' %}
+
 <h1>Habit Tracker</h1>
 
 <div>
     <h2>welcome to your Habit Tracker</h2>
-    <p>Please <a href="">login</a>or <a href="">make a new account</a></p>
+    <p>Please <a href="{% url 'auth_login' %}">login </a> or <a href="{% url 'registration_register'%}"> make a new account</a></p>
 </div>
