@@ -19,7 +19,8 @@ from django.urls import include, path
 from habits import views as habits_views
 
 urlpatterns = [
-    path('', habits_views.homepage),
+    path('', habits_views.homepage, name='homepage'),
+    path('habits/', habits_views.habits_list, name='habits_list'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
 ]

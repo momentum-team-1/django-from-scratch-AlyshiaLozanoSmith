@@ -8,6 +8,13 @@
 </head>
 
 <body>
+    <h1><a href="{% url  'homepage' %}">Habits</a></h1>
+    {% if user.is_authenticated %}
+    <div>
+        Hello, {{ user.username }}!
+        <a href="{% url 'auth_logout' %}"> Logout </a>
+    </div>
+    {% endif %}
     {% block content%}
     {% endblock %}
 
