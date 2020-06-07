@@ -144,3 +144,5 @@ INTERNAL_IPS = [
 
 #django-regisration-redux setttings
 ACCOUNT_ACTIVATION_DAYS = 7 
+
+LOGIN_REDIRECT_URL = '/'

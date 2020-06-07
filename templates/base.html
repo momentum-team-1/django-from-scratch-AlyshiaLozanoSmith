@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block meta %}{% endblock %}
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
     <title>{% block title %}Habit Tracker{% endblock %}</title>
 </head>
 
 <body>
+    <div class="mainPage mainText">
+    <div class="centerText">
     <h1><a href="{% url  'homepage' %}">Habits</a></h1>
+    </div>
     {% if user.is_authenticated %}
     <div>
         Hello, {{ user.username }}!
@@ -17,6 +21,7 @@
     {% endif %}
     {% block content%}
     {% endblock %}
-
+    
+</div>
 </body>
 </html>

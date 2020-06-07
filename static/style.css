@@ -1,0 +1,12 @@
+.mainPage {
+    background-color: darkgrey;
+}
+
+.mainText{
+    text-align: center;
+    color: black;
+}
+
+.centerText {
+    display: inline-block;
+}
