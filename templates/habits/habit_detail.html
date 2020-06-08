@@ -13,6 +13,7 @@ Habit Tracker - {{ habits }}
     {% for record in habit.records.all %}
     <li>{{ record }}</li>
     {% endfor %}
+    <li><a href="{% url 'add_record' habit_pk=habit.pk%}">add another record</a></li>
 </ul>
 
 {% endblock %}
