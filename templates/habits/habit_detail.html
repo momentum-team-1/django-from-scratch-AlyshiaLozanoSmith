@@ -8,6 +8,7 @@ Habit Tracker - {{ habits }}
 <h2>{{ habit }}</h2>
 <p>
     <a href="{% url 'edit_habit' habit_pk=habit.pk %}"> Edit this habit </a>
+    <a href="{% url 'delete_habit' habit_pk=habit.pk %}"> Delete this habit </a>
 </p>
 
 <h3>Your Progress</h3>
