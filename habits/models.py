@@ -25,4 +25,4 @@ class DailyRecord(models.Model):
         unique_together = ['habit','recorded_on']
 
     def __str__(self):
-        return f"{self.quantity}{self.unit_of_measure}:{self.recorded_on}"
+        return f"{self.quantity} {self.unit_of_measure}: {self.recorded_on}"

@@ -5,7 +5,10 @@ Habit Tracker - {{ habits }}
 
 {% endblock %}
 {% block content %}
-<h2>{{ habits }}</h2>
+<h2>{{ habit }}</h2>
+<p>
+    <a href="{% url 'edit_habit' habit_pk=habit.pk %}"> Edit this habit </a>
+</p>
 
 <h3>Your Progress</h3>
 

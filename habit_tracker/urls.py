@@ -22,6 +22,7 @@ urlpatterns = [
     path('', habits_views.homepage, name='homepage'),
     path('habits/', habits_views.habits_list, name='habits_list'),
     path('habits/<int:habit_pk>/', habits_views.habit_detail, name='habit_detail'),
+    path('habits/<int:habit_pk>/edit', habits_views.edit_habit, name = 'edit_habit'),
     path('habits/<int:habit_pk>/add_record',habits_views.add_record, name='add_record'),
     path('habits/new/', habits_views.add_habit, name='add_habit'),
     path('admin/', admin.site.urls),

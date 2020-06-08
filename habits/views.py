@@ -47,4 +47,18 @@ def add_record(request, habit_pk):
         form = RecordForm()
     return render(request, 'habits/add_record.html', {'form': form, 'habit':habit} )
 
+@login_required
+def edit_habit(request, habit_pk):
+    habit = get_object_or_404(request.user.habits, pk=habit_pk)
+
+    if request.method == 'POST':
+        form = HabitForm(instance=habit, data=request.POST)
+        if form.is_valid():
+            habit = form.save()
+            return redirect(to='habit_detail', habit_pk=habit.pk)
+    else:
+        form = HabitForm(instance=habit)
+    
+    return render(request, 'habits/edit_habit.html', {'form': form, 'habit':habit} )
+
         
