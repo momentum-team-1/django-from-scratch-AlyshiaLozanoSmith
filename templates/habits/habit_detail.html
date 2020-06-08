@@ -7,11 +7,11 @@ Habit Tracker - {{ habits }}
 {% block content %}
 <h2>{{ habits }}</h2>
 
-<h3>Progress</h3>
+<h3>Your Progress</h3>
 
 <ul>
-    {% for dailyrecord in habit.dailyrecord.all %}
-    <li>{{dailyrecord}}</li>
+    {% for record in habit.records.all %}
+    <li>{{ record }}</li>
     {% endfor %}
 </ul>
 

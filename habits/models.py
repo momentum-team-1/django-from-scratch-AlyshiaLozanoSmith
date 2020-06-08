@@ -15,12 +15,12 @@ class Habit(models.Model):
 class DailyRecord(models.Model):
     habit = models.ForeignKey(to=Habit,
                               on_delete = models.CASCADE,
-                              related_name='dailyrecords')
+                              related_name='records')
     quantity = models.PositiveIntegerField(null=True, blank=True)
-    recorded_on = models.DateField(null=True, blank=True)
+    recorded_on = models.DateField(auto_now=True, null=True, blank=True)
     
     class meta:
-        unique_together = [['habit','recorded_on']]
+        unique_together = ['habit','recorded_on']
 
     def __str__(self):
-        return f"you made progress towards your goal! {self.quantity}{self.recorded_on}"
+        return f"{self.quantity}:{self.recorded_on}"
