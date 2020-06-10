@@ -1,27 +1,29 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block meta %}{% endblock %}
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles.css">
     <title>{% block title %}Habit Tracker{% endblock %}</title>
 </head>
 
-<body>
-    <div class="mainPage mainText">
-    <div class="centerText">
-    <h1><a href="{% url  'homepage' %}">Habits</a></h1>
+<body class="background">
+    
+    <div>
+    <h1 class='text-center'><a class='text-dark' href="{% url  'homepage' %}">Habit Tracker</a></h1>
     </div>
     {% if user.is_authenticated %}
-    <div>
+    <div class="text-right">
         Hello, {{ user.username }}!
         <a href="{% url 'auth_logout' %}"> Logout </a>
-    </div>
     {% endif %}
+    </div>
     {% block content%}
     {% endblock %}
     
-</div>
+
 </body>
 </html>
