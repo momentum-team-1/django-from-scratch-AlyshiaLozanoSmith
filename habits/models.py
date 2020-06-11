@@ -19,10 +19,10 @@ class DailyRecord(models.Model):
                               related_name='records')
     quantity = models.PositiveIntegerField(null=True, blank=True)
     unit_of_measure = models.CharField(max_length=255, null=True, blank=True)
-    recorded_on = models.DateField(auto_now=True, null=True, blank=True)
+    recorded_on = models.DateField(null=True, blank=True)
     
-    class meta:
-        unique_together = ['habit','recorded_on']
+    class Meta:
+        unique_together = ['habit', 'recorded_on']
 
     def __str__(self):
         return f"{self.quantity} {self.unit_of_measure}: {self.recorded_on}"
