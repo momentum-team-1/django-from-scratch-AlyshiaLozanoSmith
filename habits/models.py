@@ -12,6 +12,7 @@ class Habit(models.Model):
 
     def __str__(self):
         return f"{self.goal} {self.goal_quantity} {self.unit_of_measure} per day"
+    
 
 class DailyRecord(models.Model):
     habit = models.ForeignKey(to=Habit,

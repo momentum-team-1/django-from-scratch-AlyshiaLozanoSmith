@@ -17,7 +17,8 @@ def habits_list(request):
 @login_required
 def habit_detail(request, habit_pk):
     habit = get_object_or_404(request.user.habits, pk=habit_pk)
-    return render(request, 'habits/habit_detail.html', { 'habit' : habit})
+    records = habit.records.order_by('-recorded_on')
+    return render(request, 'habits/habit_detail.html', { 'habit' : habit, 'records':records})
 
 @login_required
 def add_habit(request):
@@ -43,9 +44,8 @@ def add_record(request, habit_pk, year=None, month=None, day=None):
     
     next_day = date_for_record + datetime.timedelta(days=1)
     prev_day = date_for_record - datetime.timedelta(days=1)
-    
-    # record, _ = habit.records.get_or_create(recorded_on=date_for_record, habit=habit)
     record = habit.records.filter(recorded_on=date_for_record).first()
+    
     if record is None:
         record = DailyRecord(habit=habit, recorded_on=date_for_record)
 
@@ -56,7 +56,8 @@ def add_record(request, habit_pk, year=None, month=None, day=None):
             return redirect(to='habit_detail', habit_pk=habit.pk)
     else:
         form = RecordForm(instance=record)
-
+    
+    
    
     return render(request, 'habits/add_record.html', {
         'form': form, 

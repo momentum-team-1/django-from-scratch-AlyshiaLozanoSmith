@@ -1,4 +1,16 @@
-.background {
-    background-color: rgba(102, 102, 153, 0.7);
+.background{
+  
+    background-image:
+    linear-gradient(
+        to right,
+        rgba(76, 127, 178, 0.7),
+        rgba(76, 127, 178, 0.7)
+    ),
+    url(https://cdn2.howtostartanllc.com/images/business-ideas/business-idea-images/Parking-Lot-Business.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 

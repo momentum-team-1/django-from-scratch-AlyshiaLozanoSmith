@@ -1,23 +1,30 @@
 {% extends 'base.html' %}
 
+
+
+
 {% block title%}
 Habit Tracker - {{ habits }}
 
 {% endblock %}
+
+
 {% block content %}
 <h2>{{ habit }}</h2>
 <p>
-    <a href="{% url 'edit_habit' habit_pk=habit.pk %}"> Edit this habit </a>
+    <a href="{% url 'edit_habit' habit_pk=habit.pk %}"> Edit this habit </a> | 
     <a href="{% url 'delete_habit' habit_pk=habit.pk %}"> Delete this habit </a>
 </p>
 
 <h3>Your Progress</h3>
 
 <ul>
-    {% for record in habit.records.all %}
-    <li>{{ record }}</li>
+    {% for record in records %}
+     <a href="{% url 'add_record' habit_pk=habit.pk %}"><li>{{ record }}</li></a> 
     {% endfor %}
     <li><a href="{% url 'add_record' habit_pk=habit.pk%}">add another record</a></li>
 </ul>
+
+
 
 {% endblock %}

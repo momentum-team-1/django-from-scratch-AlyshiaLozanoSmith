@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
-<h2>Add a new daily record for your habits!</h2>
+<h2>Update records for your habits!</h2>
 
 <form action="{% url 'add_record' year=date.year month=date.month day=date.day habit_pk=habit.pk %}" method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <div>
-        <button type="submit">add record</button>
+        <button type="submit">update record</button>
     </div>
     <p>
         <a href="{% url 'add_record' year=prev_day.year month=prev_day.month day=prev_day.day habit_pk=habit.pk%}">{{ prev_day }}</a> |
