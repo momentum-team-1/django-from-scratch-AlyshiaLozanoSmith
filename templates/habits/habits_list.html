@@ -2,13 +2,13 @@
 
 {% block content %}
 <div>
-<h2>Your Habits</h2>
+<h2 class="ml-4 mt-5">Your Habits</h2>
 
-<p>
+<p class="ml-4">
     <a href="{% url 'add_habit'%}">Add a new habit</a>
 </p>
 
-<ul>
+<ul class="ml-3">
     {% for habit in habits %}
     <li><a href="{% url 'habit_detail' habit_pk=habit.pk%}">{{ habit }}</a></li>
     {% endfor %}

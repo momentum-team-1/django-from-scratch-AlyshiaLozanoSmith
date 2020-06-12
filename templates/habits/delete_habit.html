@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block content %}
+<div class="ml-4 mt-5">
 <form action="{% url 'delete_habit' habit_pk=habit.pk %}" method="POST">
     {% csrf_token %}
     <p>Are you sure you want to delete {{ habit }} ?</p>
     <p>
-    <button type="submit">Delete habit</button>
-    <a href="{% url 'habits_list' %}"> Cancel </a>
+    <button type="submit" class="btn btn-danger">Delete habit</button>
+    <a class="btn btn-light" href="{% url 'habit_detail' habit_pk=habit.pk %}"> Cancel </a>
     </p>
 </form>
+</div>
 
 {% endblock %}
