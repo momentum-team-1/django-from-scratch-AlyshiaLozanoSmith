@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}{% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>{% block title %}Habit Tracker{% endblock %}</title>
+</head>
+
+<body >
+    
+    <div>
+    <h1 class='text-center header-banner pt-3 pb-2 font-weight-bolder'><a class='header-banner' href="{% url  'homepage' %}">Habit Tracker</a></h1>
+    </div>
+    <div class="pr-5 pl-5">
+    {% if user.is_authenticated %}
+    <div class="text-right">
+        Hello, {{ user.username }}!
+        <a href="{% url 'auth_logout' %}"> Logout </a>
+    {% endif %}
+    </div>
+    {% block content%}
+    {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block title%}
+Habit Tracker - {{ habits }}
+
+{% endblock %}
+
+
+{% block content %}
+<h2 class="ml-4 mt-4">{{ habit }}</h2>
+<p class="ml-4">
+    <a href="{% url 'edit_habit' habit_pk=habit.pk %}"> Edit this habit </a> | 
+    <a href="{% url 'delete_habit' habit_pk=habit.pk %}"> Delete this habit </a>
+</p>
+
+<h3 class="ml-4 mt-5">Your Progress</h3>
+
+<ul>
+    {% for record in records %}
+     <a  href="{% url 'add_record' habit_pk=habit.pk %}"><li>{{ record }}</li></a> 
+    {% endfor %}
+    <a class="btn btn-outline-light mt-3 ml-0" href="{% url 'add_record' habit_pk=habit.pk%}">add another record</a>
+</ul>
+
+
+
+{% endblock %}
